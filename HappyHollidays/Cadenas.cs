@@ -1,5 +1,4 @@
-﻿using HappyHollidays.Properties;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,15 +10,18 @@ using System.Windows.Forms;
 
 namespace HappyHollidays
 {
-    public partial class Form1 : Form
+    public partial class Cadenas : Form
     {
-        public Form1()
+        public Cadenas()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void ButtonVolver_Click(object sender, EventArgs e)
         {
+            Form1 principal = new Form1();
+            principal.ShowDialog();
+            this.Close();
         }
 
         private void ButtonCadenas_Click(object sender, EventArgs e)
@@ -37,4 +39,3 @@ namespace HappyHollidays
         }
     }
 }
-    

@@ -1,0 +1,15 @@
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\HappyHollidays\bin\Debug\HappyHollidays.exe.config
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\HappyHollidays\bin\Debug\HappyHollidays.exe
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\HappyHollidays\bin\Debug\HappyHollidays.pdb
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\HappyHollidays\bin\Debug\Guna.UI2.dll
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\HappyHollidays\obj\Debug\HappyHollidays.csproj.AssemblyReference.cache
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\HappyHollidays\obj\Debug\HappyHollidays.csproj.SuggestedBindingRedirects.cache
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\HappyHollidays\obj\Debug\HappyHollidays.Form1.resources
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\HappyHollidays\obj\Debug\HappyHollidays.Properties.Resources.resources
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\HappyHollidays\obj\Debug\HappyHollidays.csproj.GenerateResource.cache
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\HappyHollidays\obj\Debug\HappyHollidays.csproj.CoreCompileInputs.cache
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\HappyHollidays\obj\Debug\HappyHollidays.csproj.CopyComplete
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\HappyHollidays\obj\Debug\HappyHollidays.exe
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\HappyHollidays\obj\Debug\HappyHollidays.pdb
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\HappyHollidays\obj\Debug\HappyHollidays.Cadenas.resources
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\HappyHollidays\obj\Debug\HappyHollidays.Hoteles.resources

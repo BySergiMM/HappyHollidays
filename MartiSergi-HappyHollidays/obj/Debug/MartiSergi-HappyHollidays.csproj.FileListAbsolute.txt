@@ -1,0 +1,15 @@
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\MartiSergi-HappyHollidays\bin\Debug\MartiSergi-HappyHollidays.exe.config
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\MartiSergi-HappyHollidays\bin\Debug\MartiSergi-HappyHollidays.exe
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\MartiSergi-HappyHollidays\bin\Debug\MartiSergi-HappyHollidays.pdb
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\MartiSergi-HappyHollidays\bin\Debug\EntityFramework.dll
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\MartiSergi-HappyHollidays\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\MartiSergi-HappyHollidays\bin\Debug\EntityFramework.xml
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\MartiSergi-HappyHollidays\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\MartiSergi-HappyHollidays\obj\Debug\MartiSergi-HappyHollidays.csproj.AssemblyReference.cache
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\MartiSergi-HappyHollidays\obj\Debug\MartiSergi-HappyHollidays.csproj.SuggestedBindingRedirects.cache
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\MartiSergi-HappyHollidays\obj\Debug\MartiSergi_HappyHollidays.Properties.Resources.resources
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\MartiSergi-HappyHollidays\obj\Debug\MartiSergi-HappyHollidays.csproj.GenerateResource.cache
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\MartiSergi-HappyHollidays\obj\Debug\MartiSergi-HappyHollidays.csproj.CoreCompileInputs.cache
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\MartiSergi-HappyHollidays\obj\Debug\MartiSergi-HappyHollidays.csproj.CopyComplete
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\MartiSergi-HappyHollidays\obj\Debug\MartiSergi-HappyHollidays.exe
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\MartiSergi-HappyHollidays\obj\Debug\MartiSergi-HappyHollidays.pdb

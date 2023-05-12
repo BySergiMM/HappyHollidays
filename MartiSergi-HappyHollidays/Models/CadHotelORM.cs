@@ -32,7 +32,6 @@ namespace MartiSergi_HappyHollidays.Models
                 cadenaToUpdate.dir_fis = update.dir_fis;
                 cadenaToUpdate.nombre = update.nombre;
 
-
                 ORM.MySaveChanges();
             }
         }

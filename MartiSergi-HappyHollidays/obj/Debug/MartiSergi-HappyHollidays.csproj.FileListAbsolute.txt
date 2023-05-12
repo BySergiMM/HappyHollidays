@@ -13,3 +13,7 @@ C:\Users\Sergi\Documents\GitHub\HappyHollidays\MartiSergi-HappyHollidays\obj\Deb
 C:\Users\Sergi\Documents\GitHub\HappyHollidays\MartiSergi-HappyHollidays\obj\Debug\MartiSergi-HappyHollidays.csproj.CopyComplete
 C:\Users\Sergi\Documents\GitHub\HappyHollidays\MartiSergi-HappyHollidays\obj\Debug\MartiSergi-HappyHollidays.exe
 C:\Users\Sergi\Documents\GitHub\HappyHollidays\MartiSergi-HappyHollidays\obj\Debug\MartiSergi-HappyHollidays.pdb
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\MartiSergi-HappyHollidays\obj\Debug\MartiSergi_HappyHollidays.Menu.resources
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\MartiSergi-HappyHollidays\obj\Debug\MartiSergi_HappyHollidays.FormHotels.resources
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\MartiSergi-HappyHollidays\bin\Debug\Guna.UI2.dll
+C:\Users\Sergi\Documents\GitHub\HappyHollidays\MartiSergi-HappyHollidays\obj\Debug\MartiSergi_HappyHollidays.FormCadenas.resources

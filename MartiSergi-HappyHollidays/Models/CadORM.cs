@@ -11,7 +11,9 @@ namespace MartiSergi_HappyHollidays.Models
     {
         public static string SelectByCif(string cif)
         {
-            cadenas hoteles = ORM.entitites.cadenas.FirstOrDefault(t => t.cif == cif);
+            cadenas hoteles = ORM.entitites.cadenas
+                .Where(t => t.cif.Equals(cif))
+                .FirstOrDefault();
 
 
             return hoteles.nombre;

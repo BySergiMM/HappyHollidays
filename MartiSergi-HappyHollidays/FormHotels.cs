@@ -46,8 +46,8 @@ namespace MartiSergi_HappyHollidays
         private void cargarHotel(hoteles hotel)
         {
             TextBoxNombre.Text = hotel.nombre.ToString();
-            ComboBoxCadena.SelectedItem = hotel.cadenas;
-            ComboBoxCiudad.SelectedItem = hotel.ciudades;
+            ComboBoxCadena.SelectedItem = hotel.cadenas.nombre;
+            ComboBoxCiudad.SelectedItem = hotel.ciudades.nombre;
             TextBoxUbicacion.Text = hotel.tipo.ToString();
             TextBoxTelefono.Text = hotel.telefono.ToString();
             TextBoxCategoria.Text = hotel.categoria.ToString();
@@ -151,8 +151,6 @@ namespace MartiSergi_HappyHollidays
 
         private void ButtonEliminar_Click_1(object sender, EventArgs e)
         {
-
-            
             HotelORM.DeleteHotel(HotelSelected);
             MessageBox.Show("Hotel eliminado");
             this.Close();

@@ -49,9 +49,5 @@ namespace MartiSergi_HappyHollidays.Models
                 ORM.MySaveChanges();
             }
         }
-
-
-
-
     }
 }

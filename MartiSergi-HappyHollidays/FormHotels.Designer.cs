@@ -49,7 +49,6 @@
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Grado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TextBoxNombre = new Guna.UI2.WinForms.Guna2TextBox();
-            this.TextBoxUbicacion = new Guna.UI2.WinForms.Guna2TextBox();
             this.TextBoxTelefono = new Guna.UI2.WinForms.Guna2TextBox();
             this.TextBoxCategoria = new Guna.UI2.WinForms.Guna2TextBox();
             this.TextBoxDireccion = new Guna.UI2.WinForms.Guna2TextBox();
@@ -63,6 +62,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.hotelesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ButtonEliminar = new Guna.UI2.WinForms.Guna2Button();
+            this.TextBoxUbicacion = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.actividadesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cadenasBindingSource)).BeginInit();
@@ -314,25 +314,6 @@
             this.TextBoxNombre.Size = new System.Drawing.Size(200, 36);
             this.TextBoxNombre.TabIndex = 56;
             // 
-            // TextBoxUbicacion
-            // 
-            this.TextBoxUbicacion.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TextBoxUbicacion.DefaultText = "";
-            this.TextBoxUbicacion.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.TextBoxUbicacion.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.TextBoxUbicacion.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TextBoxUbicacion.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TextBoxUbicacion.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TextBoxUbicacion.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.TextBoxUbicacion.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TextBoxUbicacion.Location = new System.Drawing.Point(125, 269);
-            this.TextBoxUbicacion.Name = "TextBoxUbicacion";
-            this.TextBoxUbicacion.PasswordChar = '\0';
-            this.TextBoxUbicacion.PlaceholderText = "";
-            this.TextBoxUbicacion.SelectedText = "";
-            this.TextBoxUbicacion.Size = new System.Drawing.Size(200, 36);
-            this.TextBoxUbicacion.TabIndex = 57;
-            // 
             // TextBoxTelefono
             // 
             this.TextBoxTelefono.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -503,12 +484,34 @@
             this.ButtonEliminar.Text = "Eliminar";
             this.ButtonEliminar.Click += new System.EventHandler(this.ButtonEliminar_Click_1);
             // 
+            // TextBoxUbicacion
+            // 
+            this.TextBoxUbicacion.AutoRoundedCorners = true;
+            this.TextBoxUbicacion.BackColor = System.Drawing.Color.Transparent;
+            this.TextBoxUbicacion.BorderRadius = 17;
+            this.TextBoxUbicacion.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.TextBoxUbicacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TextBoxUbicacion.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TextBoxUbicacion.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.TextBoxUbicacion.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.TextBoxUbicacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.TextBoxUbicacion.ItemHeight = 30;
+            this.TextBoxUbicacion.Items.AddRange(new object[] {
+            "PLAYA",
+            "MONTAÑA"});
+            this.TextBoxUbicacion.Location = new System.Drawing.Point(125, 275);
+            this.TextBoxUbicacion.Name = "TextBoxUbicacion";
+            this.TextBoxUbicacion.Size = new System.Drawing.Size(200, 36);
+            this.TextBoxUbicacion.TabIndex = 67;
+            this.TextBoxUbicacion.ValueMember = "id_ciudad";
+            // 
             // FormHotels
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(1196, 543);
+            this.Controls.Add(this.TextBoxUbicacion);
             this.Controls.Add(this.ButtonEliminar);
             this.Controls.Add(this.ComboBoxCiudad);
             this.Controls.Add(this.ComboBoxCadena);
@@ -517,7 +520,6 @@
             this.Controls.Add(this.TextBoxDireccion);
             this.Controls.Add(this.TextBoxCategoria);
             this.Controls.Add(this.TextBoxTelefono);
-            this.Controls.Add(this.TextBoxUbicacion);
             this.Controls.Add(this.TextBoxNombre);
             this.Controls.Add(this.DataGridView);
             this.Controls.Add(this.ButtonBorrar);
@@ -560,7 +562,6 @@
         private Guna.UI2.WinForms.Guna2Button ButtonBorrar;
         private Guna.UI2.WinForms.Guna2DataGridView DataGridView;
         private Guna.UI2.WinForms.Guna2TextBox TextBoxNombre;
-        private Guna.UI2.WinForms.Guna2TextBox TextBoxUbicacion;
         private Guna.UI2.WinForms.Guna2TextBox TextBoxTelefono;
         private Guna.UI2.WinForms.Guna2TextBox TextBoxCategoria;
         private Guna.UI2.WinForms.Guna2TextBox TextBoxDireccion;
@@ -577,5 +578,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Grado;
+        private Guna.UI2.WinForms.Guna2ComboBox TextBoxUbicacion;
     }
 }

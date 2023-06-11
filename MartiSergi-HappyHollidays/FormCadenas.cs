@@ -6,14 +6,14 @@ namespace MartiSergi_HappyHollidays
 {
     public partial class FormCadenas : Form
     {
-
         cadenas cadenaSeleccionada;
 
         public FormCadenas()
         {
-            InitializeComponent(); 
+            InitializeComponent();
             ButtonEliminar.Visible = false;
         }
+
         public FormCadenas(cadenas cad)
         {
             cadenaSeleccionada = cad;
@@ -22,6 +22,7 @@ namespace MartiSergi_HappyHollidays
             ButtonEliminar.Visible = true;
             textBoxCif.Enabled = false;
         }
+
         private void cargarCadena(cadenas cad)
         {
             textBoxCif.Text = cad.cif;
@@ -37,32 +38,56 @@ namespace MartiSergi_HappyHollidays
                 dir_fis = textBoxDirFiscal.Text,
                 nombre = textBoxNombre.Text
             };
-                
+
             return cadenaToUpdate;
-        }   
+        }
 
         private void ButtonAnadir_Click(object sender, EventArgs e)
         {
-            cadenas cadenaUpdate = cogerCadena();
-            if (ButtonEliminar.Visible)
+            if (string.IsNullOrWhiteSpace(textBoxCif.Text) || string.IsNullOrWhiteSpace(textBoxDirFiscal.Text) || string.IsNullOrWhiteSpace(textBoxNombre.Text))
             {
-                CadHotelORM.UpdateCadena(cadenaSeleccionada, cadenaUpdate);
-                MessageBox.Show("Cadena actualizada");
+                MessageBox.Show("No puedes añadir una cadena vacía");
+            }
+            else if (CadHotelORM.NameExists(textBoxNombre.Text))
+            {
+                MessageBox.Show("No puedes introducir el mismo nombre");
+            }
+            else if (CadHotelORM.CifExists(textBoxCif.Text))
+            {
+                MessageBox.Show("No puedes introducir un CIF duplicado");
             }
             else
             {
-                CadHotelORM.AddCadena(cadenaUpdate);
-                MessageBox.Show("Cadena añadida");
-            }
+                cadenas cadenaUpdate = cogerCadena();
 
-            this.Close();
+                if (ButtonEliminar.Visible)
+                {
+                    CadHotelORM.UpdateCadena(cadenaSeleccionada, cadenaUpdate);
+                    MessageBox.Show("Cadena actualizada");
+                }
+                else
+                {
+                    CadHotelORM.AddCadena(cadenaUpdate);
+                    MessageBox.Show("Cadena añadida");
+                }
+
+                this.Close();
+            }
         }
 
         private void ButtonEliminar_Click(object sender, EventArgs e)
         {
-            CadHotelORM.DeleteCadena(cadenaSeleccionada);
-            MessageBox.Show("Cadena eliminada");
-            this.Close();
+            DialogResult dialogResult = MessageBox.Show("Estás seguro de que quieres eliminar la cadena?",
+                                                        "Confirmación de eliminación",
+                                                        MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                CadHotelORM.DeleteCadena(cadenaSeleccionada);
+                MessageBox.Show("Cadena eliminada");
+                this.Close();
+            }
         }
+
     }
 }

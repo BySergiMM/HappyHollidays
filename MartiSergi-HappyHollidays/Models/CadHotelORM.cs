@@ -21,6 +21,15 @@ namespace MartiSergi_HappyHollidays.Models
             ORM.MySaveChanges();
         }
 
+        public static bool NameExists(string name)
+        {
+            return ORM.entitites.cadenas.Any(cadena => cadena.nombre == name);
+        }
+
+        public static bool CifExists(string cif)
+        {
+            return ORM.entitites.cadenas.Any(cad => cad.cif == cif);
+        }
 
         public static void UpdateCadena(cadenas cadena, cadenas update)
         {
@@ -46,6 +55,11 @@ namespace MartiSergi_HappyHollidays.Models
 
                 ORM.MySaveChanges();
             }
+        }
+        public static string SelectNombreCadenaById(string id)
+        {
+            var cadena = ORM.entitites.cadenas.FirstOrDefault(c => c.cif == id);
+            return cadena != null ? cadena.nombre : string.Empty;
         }
     }
 }

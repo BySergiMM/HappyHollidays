@@ -1,30 +1,27 @@
 ﻿using MartiSergi_HappyHollidays.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MartiSergi_HappyHollidays
 {
     public partial class FormHotels : Form
     {
-
         private hoteles HotelSelected;
 
         public FormHotels()
         {
             InitializeComponent();
+
             if (HotelSelected == null)
             {
                 ButtonEliminar.Visible = false;
+
                 actividadesBindingSource.DataSource = ActHotelORM.SelectActividades();
                 cadenasBindingSource.DataSource = CadHotelORM.SelectCadenaHoteles();
                 ciudadesBindingSource.DataSource = CiudadesORM.SelectCiudades();
+
                 ComboBoxActividades.SelectedValue = ComboBoxActividades.SelectedIndex;
                 ComboBoxCadena.SelectedValue = ComboBoxCadena.SelectedIndex;
                 ComboBoxCiudad.SelectedValue = ComboBoxCiudad.SelectedIndex;
@@ -34,11 +31,15 @@ namespace MartiSergi_HappyHollidays
         public FormHotels(hoteles hotel)
         {
             InitializeComponent();
+
             HotelSelected = hotel;
+
             actividadesBindingSource.DataSource = ActHotelORM.SelectActividades();
             cadenasBindingSource.DataSource = CadHotelORM.SelectCadenaHoteles();
             ciudadesBindingSource.DataSource = CiudadesORM.SelectCiudades();
+
             cargarHotel(HotelSelected);
+
             TextBoxNombre.Enabled = false;
             ComboBoxCiudad.Enabled = false;
         }
@@ -52,6 +53,7 @@ namespace MartiSergi_HappyHollidays
             TextBoxTelefono.Text = hotel.telefono.ToString();
             TextBoxCategoria.Text = hotel.categoria.ToString();
             TextBoxDireccion.Text = hotel.direccion.ToString();
+
             Fill(hotel.act_hotel.ToList());
         }
 
@@ -67,6 +69,7 @@ namespace MartiSergi_HappyHollidays
                 DataGridView.Rows[rowIndex].Cells[2].Value = act.grado;
             }
         }
+
         private List<act_hotel> GetActHotel()
         {
             List<act_hotel> listaActividades = new List<act_hotel>();
@@ -79,6 +82,7 @@ namespace MartiSergi_HappyHollidays
                 actividad.nombre = row.Cells[1].Value.ToString();
                 actividad.grado = Convert.ToInt32(row.Cells[2].Value);
                 actividad.id_ciudad = Convert.ToInt32(ComboBoxCiudad.SelectedValue.ToString());
+
                 listaActividades.Add(actividad);
             }
 
@@ -105,7 +109,6 @@ namespace MartiSergi_HappyHollidays
         private void button2_Click(object sender, EventArgs e)
         {
             HotelORM.DeleteHotel(HotelSelected);
-
             this.Close();
         }
 
@@ -123,26 +126,58 @@ namespace MartiSergi_HappyHollidays
             }
         }
 
+        private bool CheckEmptyFields()
+        {
+            if (string.IsNullOrWhiteSpace(TextBoxNombre.Text) ||
+                string.IsNullOrWhiteSpace(TextBoxUbicacion.Text) ||
+                string.IsNullOrWhiteSpace(TextBoxTelefono.Text) ||
+                string.IsNullOrWhiteSpace(TextBoxCategoria.Text) ||
+                string.IsNullOrWhiteSpace(TextBoxDireccion.Text) ||
+                ComboBoxCadena.SelectedItem == null ||
+                ComboBoxCiudad.SelectedItem == null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         private void ButtonGuardar_Click(object sender, EventArgs e)
         {
+            if (CheckEmptyFields())
+            {
+                MessageBox.Show("Error, no se pueden dejar campos vacíos",
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (ButtonEliminar.Visible == false)
             {
-                hoteles hotel = new hoteles();
-                hotel.nombre = TextBoxNombre.Text;
-                hotel.cif = ComboBoxCadena.SelectedValue.ToString();
-                hotel.act_hotel = GetActHotel();
-                hotel.id_ciudad = (int)ComboBoxCiudad.SelectedValue;
-                hotel.categoria = Int32.Parse(TextBoxCategoria.Text);
-                hotel.telefono = Int32.Parse(TextBoxTelefono.Text);
-                hotel.direccion = TextBoxDireccion.Text;
-                hotel.tipo = TextBoxUbicacion.Text;
+                if (!HotelORM.CheckExists(TextBoxNombre.Text, (int)ComboBoxCiudad.SelectedValue))
+                {
+                    hoteles hotel = new hoteles();
+                    hotel.nombre = TextBoxNombre.Text;
+                    hotel.cif = ComboBoxCadena.SelectedValue.ToString();
+                    hotel.act_hotel = GetActHotel();
+                    hotel.id_ciudad = (int)ComboBoxCiudad.SelectedValue;
+                    hotel.categoria = Int32.Parse(TextBoxCategoria.Text);
+                    hotel.telefono = Int32.Parse(TextBoxTelefono.Text);
+                    hotel.direccion = TextBoxDireccion.Text;
+                    hotel.tipo = TextBoxUbicacion.Text;
 
-                HotelORM.AddHotel(hotel);
+                    HotelORM.AddHotel(hotel);
+                }
+                else
+                {
+                    MessageBox.Show("Ya existe un hotel con este nombre en la misma ciudad",
+                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
                 hoteles hotelToUpdate = cogerHotel();
-
                 HotelORM.UpdateHotel(HotelSelected, hotelToUpdate);
             }
 
@@ -151,9 +186,15 @@ namespace MartiSergi_HappyHollidays
 
         private void ButtonEliminar_Click_1(object sender, EventArgs e)
         {
-            HotelORM.DeleteHotel(HotelSelected);
-            MessageBox.Show("Hotel eliminado");
-            this.Close();
+            var confirmResult = MessageBox.Show("Estás seguro que quieres eliminar el hotel?",
+                                                "Confirmar eliminación!",
+                                                MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                HotelORM.DeleteHotel(HotelSelected);
+                MessageBox.Show("Hotel eliminado");
+                this.Close();
+            }
         }
 
         private void ButtonBorrar_Click(object sender, EventArgs e)
@@ -190,9 +231,7 @@ namespace MartiSergi_HappyHollidays
             else
             {
                 DataGridView.Rows.Add();
-
                 int rowIndex = DataGridView.Rows.Count - 1;
-
                 DataGridView.Rows[rowIndex].Cells[0].Value = idAct;
                 DataGridView.Rows[rowIndex].Cells[1].Value = nombre;
                 DataGridView.Rows[rowIndex].Cells[2].Value = grado;

@@ -21,8 +21,14 @@ namespace MartiSergi_HappyHollidays.Models
             ORM.MySaveChanges();
         }
 
+        public static bool CheckExists(string name, int cityId)
+        {
+            var hotel = ORM.entitites.hoteles
+                .FirstOrDefault(h => h.nombre == name && h.id_ciudad == cityId);
 
-        public static void UpdateHotel(hoteles hotel, hoteles update)
+            return hotel != null;
+        }
+        public static void UpdateHotel(hoteles hotel, hoteles update)   
         {
             var hotelToUpdate = ORM.entitites.hoteles.FirstOrDefault(h => h.id_ciudad == hotel.id_ciudad && h.nombre == hotel.nombre);
 
